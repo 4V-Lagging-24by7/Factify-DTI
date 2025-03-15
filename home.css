@@ -1,0 +1,149 @@
+/* Responsive UI with blue gradient background, lighter navbar, and all text in black */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(90deg, #2193b0, #6dd5ed);
+    color: black;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.navbar h1 {
+    font-size: 26px;
+    color: black;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.navbar ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover {
+    color: #ff5e78;
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 20px;
+    background: rgba(255, 255, 255, 0.85);
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: black;
+    font-weight: bold;
+}
+
+/* Buttons */
+.btn {
+    padding: 14px 28px;
+    background: #ff5e78;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    margin: 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #ff3b5b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 94, 120, 0.4);
+}
+
+/* Discover & News Sections */
+.discover, .news {
+    padding: 60px 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.discover h2, .news h2 {
+    margin-bottom: 25px;
+    font-size: 2rem;
+    color: black;
+}
+
+.discover-container, .news-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.box, .news-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 24px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: black;
+}
+
+.box:hover, .news-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 25px rgba(255, 94, 120, 0.5);
+}
+
+.box img, .news-box img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero, .discover, .news {
+        width: 95%;
+        padding: 40px 15px;
+    }
+    .box, .news-box {
+        width: 90%;
+    }
+}
