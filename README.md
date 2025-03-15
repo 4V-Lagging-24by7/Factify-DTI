@@ -5,9 +5,13 @@ Factify is a cutting-edge solution designed to combat misinformation through adv
 
 # Key Features
 AI-Powered Analysis: Leverages machine learning algorithms to detect patterns and inconsistencies typical of fabricated content
+
 Multi-Format Verification: Analyze text, images, and videos through a unified, user-friendly interface
+
 Real-Time Fact-Checking: Rapidly cross-references content against trusted sources for immediate authenticity assessment
+
 Educational Resources: Helps users develop critical media literacy skills to identify misinformation independently
+
 Comprehensive Results: Provides detailed explanations of verification outcomes with supporting evidence
 
 # Use Cases
