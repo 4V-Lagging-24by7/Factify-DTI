@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factify - AI-Powered Misinformation Detection</title>
+    <meta name="description" content="Factify uses advanced AI to detect fake news, manipulated images, and deepfake videos. Join 500K+ users fighting misinformation with 95% accuracy.">
+    <meta name="keywords" content="AI misinformation detection, fake news detector, deepfake video analysis">
+    <style>
+        :root {
+            --primary-color: #646cff;
+            --secondary-color: #535bf2;
+            --text-color: #213547;
+            --bg-color: #f0f6ff;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Inter, system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--card-bg);
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .hero-image img {
+            width: 120%;
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }  
+
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 1rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tools Section */
+        .tools {
+            padding: 4rem 0;
+        }
+
+        .tools h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .tools h2 span {
+            color: var(--primary-color);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: left;
+        }
+
+        .tool-card img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .how-it-works h2 span {
+            color: var(--primary-color);
+        }
+
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .how-it-works-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .how-it-works-card img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials h2 span {
+            color: var(--primary-color);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: left;
+        }
+
+        /* Trust Section */
+       /* .trust {
+            padding: 4rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .trust-content ul {
+            list-style: none;
+        }
+
+        .trust-content li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+            */
+            .trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 60px auto;
+  max-width: 1200px;
+}
+
+.trust-content {
+  flex: 1 1 400px;
+}
+
+.trust-content h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+
+.trust-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.trust-content li {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #444;
+}
+
+.trust-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.trust-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+        /* CTA Section 
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+            border-radius: 1rem;
+        } */
+
+        /* Newsletter Section 
+        .newsletter {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter input {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            width: 70%;
+            font-size: 1rem;
+        }  */
+
+        /* Newsletter Section */
+.newsletter {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    margin-top: 4rem;
+}
+
+.newsletter h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #e6e6e6;
+}
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.newsletter input[type="email"] {
+    padding: 1rem 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 0 0 2px #fff;
+}
+
+.newsletter .btn-primary {
+    background-color: #fff;
+    color: var(--primary-color);
+    padding: 0.9rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.newsletter .btn-primary:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.05);
+}
+
+/* CTA Section */
+.cta {
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+    background: var(--secondary-color);
+    color: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.cta .btn-secondary {
+    background-color: #fff;
+    color: var(--secondary-color);
+    padding: 0.9rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta .btn-secondary:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.05);
+}
+
+
+
+
+        /* Footer 
+        footer {
+            background: var(--card-bg);
+            padding: 4rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-links h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+        }  */
+
+
+        footer {
+    background-color: white;
+    color: black;
+    padding: 4rem 1rem 2rem;
+    margin-top: 5rem;
+    border-top: 1px solid #222;
+    font-size: 0.95rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.footer-links {
+    flex: 1 1 250px;
+}
+
+.footer-links h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color, #00bcd4);
+}
+
+.footer-links p {
+    line-height: 1.6;
+    color: #1a1a1a;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links ul li a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #213547;
+    text-decoration: underline;
+}
+
+footer p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            margin-left: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero, .tools-grid, .trust, .footer-content, .how-it-works-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .newsletter form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter input {
+                width: 100%;
+            }
+            .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        margin-bottom: 2rem;
+    }
+
+    .footer-links h3 {
+        font-size: 1.2rem;
+    }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                Factify
+            </a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="http://localhost:8000/text_detection.html">Text Detector</a>
+                <a href="http://localhost:8000/image_detection.html">Image Detector</a>
+                <a href="#">Video Detector</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-content">
+                <h1>Fight <span>Misinformation</span><br>with AI Precision</h1>
+                <h2>Detect fake news, images, and videos with AI precision</h2>
+                <p>Factify uses advanced artificial intelligence to help you verify the authenticity of text, images, and videos in an era of increasing misinformation.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Start Detecting Today</a>
+                    <a href="#" class="btn btn-secondary">Discover How It Works</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="01.jpeg" alt="AI analyzing data to detect misinformation">
+            </div>
+        </section>
+
+        <section class="stats container">
+            <div class="stat-item">
+                <h2>95%</h2>
+                <p>Accuracy Rate</p>
+            </div>
+            <div class="stat-item">
+                <h2>10M+</h2>
+                <p>Content Items Analyzed</p>
+            </div>
+            <div class="stat-item">
+                <h2>500K+</h2>
+                <p>Users Trust Factify</p>
+            </div>
+        </section>
+
+        <section class="tools container">
+            <h2>Our Detection <span>Tools</span></h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <img src="data:image/svg+xml,<svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z' stroke='%23646cff' stroke-width='2'/></svg>" alt="Text document icon">
+                    <h3>Text Detector</h3>
+                    <p>Analyze news articles, social media posts, and other text content for misinformation and fake news.</p>
+                    <a href="#" class="btn btn-secondary">Try Text Detector →</a>
+                </div>
+                <div class="tool-card">
+                    <img src="data:image/svg+xml,<svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8z' stroke='%23646cff' stroke-width='2'/></svg>" alt="Image camera icon">
+                    <h3>Image Detector</h3>
+                    <p>Detect manipulated or AI-generated images with our advanced image analysis technology.</p>
+                    <a href="#" class="btn btn-secondary">Try Image Detector →</a>
+                </div>
+                <div class="tool-card">
+                    <img src="data:image/svg+xml,<svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M23 7l-7 5 7 5V7zM1 5h15v14H1V5zm2 2v10h11V7H3z' stroke='%23646cff' stroke-width='2'/></svg>" alt="Video play icon">
+                    <h3>Video Detector</h3>
+                    <p>Identify deepfake videos and manipulated video content with high accuracy.</p>
+                    <a href="#" class="btn btn-secondary">Try Video Detector →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works container">
+            <h2>How Factify <span>Works</span></h2>
+            <div class="how-it-works-grid">
+                <div class="how-it-works-card">
+                    <img src="data:image/svg+xml,<svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 2v6m0 4v10m-6-6h12' stroke='%23646cff' stroke-width='2'/></svg>" alt="Upload icon">
+                    <h3>Upload Content</h3>
+                    <p>Submit text, images, or videos you want to verify.</p>
+                </div>
+                <div class="how-it-works-card">
+                    <img src="data:image/svg+xml,<svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-1-9h2v6h-2zm0-4h2v2h-2z' stroke='%23646cff' stroke-width='2'/></svg>" alt="Analyze icon">
+                    <h3>AI Analysis</h3>
+                    <p>Our AI scans for signs of misinformation or manipulation.</p>
+                </div>
+                <div class="how-it-works-card">
+                    <img src="data:image/svg+xml,<svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M9 12l2 2 4-4m-6 4a9 9 0 1 0 0-18 9 9 0 0 0 0 18z' stroke='%23646cff' stroke-width='2'/></svg>" alt="Results icon">
+                    <h3>Get Results</h3>
+                    <p>Receive instant, accurate verification results.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials container">
+            <h2>What Our <span>Users Say</span></h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Factify saved me from sharing a deepfake video—its accuracy is unmatched!"</p>
+                    <p><strong>Jane D., Journalist</strong></p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The text detector helped me verify a suspicious article in seconds."</p>
+                    <p><strong>Mike S., Educator</strong></p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Factify is my go-to tool for checking social media images."</p>
+                    <p><strong>Emily R., Social Media Manager</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust container">
+            <div class="trust-content">
+                <h2>Why Trust Factify?</h2>
+                <ul>
+                    <li>✓ Our platform uses advanced machine learning algorithms trained on millions of verified and fake content samples.</li>
+                    <li>✓ Factify is constantly learning and improving, with regular updates to keep up with the latest misinformation techniques.</li>
+                    <li>✓ We're committed to transparency and education, helping users understand how to identify misinformation themselves.</li>
+                </ul>
+            </div>
+            <div class="trust-image">
+                <img src="02.avif" alt="Trustworthy AI verification process">
+            </div>
+        </section>
+
+        <section class="newsletter container">
+            <h2>Stay Updated</h2>
+            <p>Join our newsletter for the latest on AI and misinformation trends.</p>
+            <form>
+                <input type="email" placeholder="Enter your email" required>
+                <a href="#" class="btn btn-primary">Subscribe</a>
+            </form>
+        </section>
+
+        <section class="cta container">
+            <h2>Ready to Fight Misinformation?</h2>
+            <p>Join thousands of users who are already using Factify to verify content and combat the spread of fake news.</p>
+            <a href="#" class="btn btn-secondary">Start Detecting Today</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <h3>Factify</h3>
+                <p>Advanced AI-powered platform for detecting fake news, manipulated images, and deepfake videos.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Text Detector</a></li>
+                    <li><a href="#">Image Detector</a></li>
+                    <li><a href="#">Video Detector</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Contact & Social</h3>
+                <ul>
+                    <li><a href="mailto:contact@factify.com">contact@factify.com</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">X Profile</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" style="text-align: center; margin-top: 2rem;">
+            <p>© 2025 Factify. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
